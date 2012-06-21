@@ -1,4 +1,4 @@
-source "http://rubygems.org"
+source 'https://rubygems.org'
 
-# Specify your gem's dependencies in rspec_caching_test.gemspec
+# Specify your gem's dependencies in rspec-rails-caching.gemspec
 gemspec
