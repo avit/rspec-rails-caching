@@ -2,13 +2,9 @@ require 'rspec-rails-caching/matchers/base'
 
 module RSpecRailsCaching::Matchers
 
-  caching_matcher :expire_page do
-    def cache_or_expire
-      "expire page"
-    end
-
+  caching_matcher :expire do
     def cache_results
-      cache_store.expired_pages
+      cache_store.expired
     end
   end
 
