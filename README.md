@@ -1,6 +1,6 @@
-# Rspec::Rails::Caching
+# RSpec Rails Caching
 
-TODO: Write a gem description
+Provides a cache store for recording and matchers for testing cache events in Rails controller tests.
 
 ## Installation
 
@@ -18,7 +18,24 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Add `caching: true` as an option around a controller example group and use
+a proc or lambda around the action for matching:
+
+    describe WidgetsController, caching: true do
+      it "should cache the show action" do
+        ->{ get :show, id: 123 }.should cache_page('/widgets/123')
+      end
+
+      it "should expire the update action" do
+        ->{ put :update, id: 123 }.should expire_page('/widgets/123')
+      end
+    end
+
+### Available matchers:
+
+* `cache_page` / `expire_page`
+* `cache_fragment` / `expire_fragment`
+* `cache_action` / `expire_action`
 
 ## Contributing
 
