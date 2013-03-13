@@ -64,7 +64,7 @@ module RSpecRailsCaching
     private
     def test_cache_url(options)
       return options if options.is_a?(String)
-      url_for(options.merge({ :only_path => true, :skip_relative_url_root => true }))
+      url_for(options.merge(:only_path => true, :skip_relative_url_root => true))
     end
   end
 end
