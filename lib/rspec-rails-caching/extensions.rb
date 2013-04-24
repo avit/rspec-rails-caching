@@ -1,1 +1,1 @@
-require 'rspec-rails-caching/extensions/action_controller/base'
+require_relative 'extensions/action_controller/base'

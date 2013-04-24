@@ -1,4 +1,4 @@
-require 'rspec-rails-caching/matchers/cache'
-require 'rspec-rails-caching/matchers/expire'
-require 'rspec-rails-caching/matchers/cache_page'
-require 'rspec-rails-caching/matchers/expire_page'
+require_relative 'matchers/cache'
+require_relative 'matchers/expire'
+require_relative 'matchers/cache_page'
+require_relative 'matchers/expire_page'

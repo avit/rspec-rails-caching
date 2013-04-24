@@ -1,7 +1,7 @@
-require 'rspec-rails-caching/version'
-require 'rspec-rails-caching/matchers'
-require 'rspec-rails-caching/test_store'
-require 'rspec-rails-caching/extensions/action_controller'
+require_relative 'rspec-rails-caching/version'
+require_relative 'rspec-rails-caching/matchers'
+require_relative 'rspec-rails-caching/test_store'
+require_relative 'rspec-rails-caching/extensions/action_controller'
 
 module RSpecRailsCaching
 
