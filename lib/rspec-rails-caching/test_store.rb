@@ -5,18 +5,18 @@ module RSpecRailsCaching
     attr_reader   :expired
     attr_reader   :expiration_patterns
     attr_reader   :data
-    attr_accessor :read_cache
+    attr_accessor :options
     attr_reader   :cached_pages
     attr_reader   :expired_pages
 
     attr_accessor :context
 
-    def initialize(do_read_cache = false)
+    def initialize(options = nil)
+      @options = options ? options.dup : {do_read_cache: false}
       @data = {}
       @cached = []
       @expired = []
       @expiration_patterns = []
-      @read_cache = do_read_cache
       @cached_pages = []
       @expired_pages = []
     end
@@ -28,20 +28,20 @@ module RSpecRailsCaching
       @expiration_patterns.clear
     end
 
-    def read_entry(name, options = nil)
-      read_cache ? @data[name] : nil
+    def read_entry(name, options = {})
+      options[:do_read_cache] ? @data[name] : nil
     end
 
-    def write_entry(name, value, options = nil)
-      @data[name] = value if read_cache
+    def write_entry(name, value, options = {})
+      @data[name] = value if options[:do_read_cache]
       @cached << name
     end
 
-    def delete_entry(name, options = nil)
+    def delete_entry(name, options = {})
       @expired << name
     end
 
-    def delete_matched(matcher, options = nil)
+    def delete_matched(matcher, options = {})
       @expiration_patterns << matcher
     end
 

@@ -8,7 +8,7 @@ module RSpecRailsCaching
   RSpec.configure do |config|
     if ActionController::Base.perform_caching
       silence_warnings do
-        Object.const_set :RAILS_CACHE, TestStore.new(true)
+        Object.const_set :RAILS_CACHE, TestStore.new(do_read_cache: true)
       end
       ActionController::Base.cache_store = RAILS_CACHE
       ActionController::Base.class_eval do
