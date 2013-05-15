@@ -1,3 +1,5 @@
+require 'rspec/rails'
+
 require_relative 'rspec-rails-caching/version'
 require_relative 'rspec-rails-caching/matchers'
 require_relative 'rspec-rails-caching/test_store'
