@@ -1,4 +1,4 @@
-require 'rspec/rails'
+require 'rspec/core'
 
 require_relative 'rspec-rails-caching/version'
 require_relative 'rspec-rails-caching/matchers'
@@ -17,9 +17,7 @@ module RSpecRailsCaching
         extend Extensions::ActionController::ClassMethods
       end
 
-      RSpec::Rails::ControllerExampleGroup.class_eval do
-        include Matchers
-      end
+      config.include Matchers
 
       config.before :each do |example|
         RAILS_CACHE.reset
@@ -30,5 +28,4 @@ module RSpecRailsCaching
       end
     end
   end
-
 end
