@@ -18,6 +18,8 @@ Or install it yourself as:
 
 ## Usage
 
+Set `config.action_controller.perform_caching = true` in `config/environments/test.rb`
+
 Add `caching: true` as an option around a controller example group and use
 a proc or lambda around the action for matching:
 
