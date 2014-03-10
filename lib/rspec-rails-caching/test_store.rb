@@ -25,6 +25,8 @@ module RSpecRailsCaching
       @data.clear
       @cached.clear
       @expired.clear
+      @cached_pages.clear
+      @expired_pages.clear
       @expiration_patterns.clear
     end
 
