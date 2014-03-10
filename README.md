@@ -1,6 +1,7 @@
 # RSpec Rails Caching
 
-Provides a cache store for recording and matchers for testing cache events in Rails controller tests.
+Provides a cache store for recording and matchers for testing cache events in
+Rails controller tests.
 
 ## Installation
 
@@ -20,10 +21,10 @@ Or install it yourself as:
 
 Set `config.action_controller.perform_caching = true` in `config/environments/test.rb`
 
-Add `caching: true` as an option around a controller example group and use
-a proc or lambda around the action for matching:
+This gem captures the actual cache events for each request. In a controller
+example group, use a proc or a lambda around the action for matching:
 
-    describe WidgetsController, caching: true do
+    describe WidgetsController, type: :controller do
       it "should cache the show action" do
         ->{ get :show, id: 123 }.should cache_page('/widgets/123')
       end
