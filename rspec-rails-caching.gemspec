@@ -10,6 +10,8 @@ Gem::Specification.new do |gem|
   gem.summary     = %q{RSpec Rails Caching}
   gem.description = %q{RSpec helper for testing page and action caching in Rails}
 
+  gem.required_ruby_version = Gem::Requirement.new(">= 2.0.0")
+
   gem.add_dependency "rails", ">=3.0.0"
   gem.add_dependency "rspec", ">=2.8.0"
   gem.add_dependency "rspec-rails", ">=2.10.0"
