@@ -13,16 +13,16 @@ module RSpecRailsCaching
           "#{cache_or_expire} #{expected.inspect}"
         end
 
-        failure_message_for_should_not do |actual|
+        failure_message_when_negated do |actual|
           "Expected #{controller.class} not to #{cache_or_expire} #{expected.inspect} but got #{cache_results.inspect}"
         end
 
-        failure_message_for_should do |actual|
+        failure_message do |actual|
           "Expected #{controller.class} to #{cache_or_expire} #{expected.inspect} but got #{cache_results.inspect}"
         end
 
         def controller
-          matcher_execution_context.controller
+          @matcher_execution_context.controller
         end
 
         def cache_store

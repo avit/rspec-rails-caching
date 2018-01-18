@@ -3,7 +3,11 @@ require 'rspec-rails-caching/matchers/base'
 module RSpecRailsCaching::Matchers
 
   caching_matcher :cache do
-    def cache_results
+    define_method :cache_or_expire do
+      "cache"
+    end
+
+    define_method :cache_results do
       cache_store.cached
     end
   end
